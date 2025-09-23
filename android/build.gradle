@@ -11,7 +11,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.2.1'
+        classpath 'com.android.tools.build:gradle:8.9.2'
     }
 }
 
@@ -57,5 +57,5 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
     implementation "com.yandex.android:mobmetricalib:5.3.0"
-    implementation 'com.yandex.android:mobmetricalib-ndk-crashes:2.0.0'
+    implementation 'io.appmetrica.analytics:analytics-ndk-crashes:3.1.0'
 }
