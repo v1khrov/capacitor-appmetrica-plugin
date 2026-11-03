@@ -1,5 +1,6 @@
 import { WebPlugin } from '@capacitor/core';
-import {
+
+import type {
   AppMetricaPlugin,
   YAMConfig,
   YAMReportEventOptions,
@@ -11,11 +12,11 @@ import {
   ECommerceCartItem,
   ECommerceOrder,
   YAMUserProfileId,
-  YAMUserProfile
+  YAMUserProfile,
 } from './definitions';
 
 export class AppMetricaWeb extends WebPlugin implements AppMetricaPlugin {
-  private isMetricaLogs: boolean = false;
+  private isMetricaLogs = false;
 
   private log(...vars: any[]) {
     if (this.isMetricaLogs) {
@@ -36,7 +37,7 @@ export class AppMetricaWeb extends WebPlugin implements AppMetricaPlugin {
   async setLocation(location: YAMLocation): Promise<void> {
     this.log('AppMetrica: Web not supported. [setLocation()]', location);
   }
-  async setLocationTracking(options: { enabled: boolean; }): Promise<void> {
+  async setLocationTracking(options: { enabled: boolean }): Promise<void> {
     this.log('AppMetrica: Web not supported. [setLocationTracking()]', options);
   }
   async showScreenEvent(screen: ECommerceScreen): Promise<void> {
