@@ -1,98 +1,98 @@
 export interface AppMetricaPlugin {
   /**
    * Активация метрики
-   * @param config 
+   * @param config
    */
   activate(config: YAMConfig): Promise<void>;
 
   /**
    * Отправка простого события
-   * 
-   * @param options 
+   *
+   * @param options
    */
   reportEvent(options: YAMReportEventOptions): Promise<void>;
 
   /**
    * Отправит событие ошибки
-   * 
-   * @param options 
+   *
+   * @param options
    */
   reportError(options: YAMReportErrorOptions): Promise<void>;
 
   /**
    * Сообщить геопозицию
-   * 
-   * @param location 
+   *
+   * @param location
    */
   setLocation(location: YAMLocation): Promise<void>;
 
   /**
    * Вкл/выкл отслеживание местоположения
-   * 
-   * @param options 
+   *
+   * @param options
    */
-  setLocationTracking(options: { enabled: boolean; }): Promise<void>;
+  setLocationTracking(options: { enabled: boolean }): Promise<void>;
 
   /**
    * eCommerce: Открытие страницы
-   * 
-   * @param screen 
+   *
+   * @param screen
    */
   showScreenEvent(screen: ECommerceScreen): Promise<void>;
 
   /**
    * eCommerce: Просмотр карточки товара
-   * 
-   * @param options 
+   *
+   * @param options
    */
   showProductCardEvent(options: YAMShowProductCardEventOptions): Promise<void>;
 
   /**
    * eCommerce: Просмотр страницы товара
-   * 
-   * @param options 
+   *
+   * @param options
    */
   showProductDetailsEvent(options: YAMShowProductDetailsEventOptions): Promise<void>;
 
   /**
    * eCommerce: Добавление товара в корзину
-   * 
-   * @param cartItem 
+   *
+   * @param cartItem
    */
   addCartItemEvent(cartItem: ECommerceCartItem): Promise<void>;
 
   /**
    * eCommerce: Удаление товара из корзины
-   * 
-   * @param cartItem 
+   *
+   * @param cartItem
    */
   removeCartItemEvent(cartItem: ECommerceCartItem): Promise<void>;
 
   /**
    * eCommerce: Начало оформления заказа
-   * 
-   * @param order 
+   *
+   * @param order
    */
   beginCheckoutEvent(order: ECommerceOrder): Promise<void>;
 
   /**
    * eCommerce: Завершение оформления заказа
-   * 
-   * @param order 
+   *
+   * @param order
    */
   purchaseEvent(order: ECommerceOrder): Promise<void>;
 
   /**
    * User Profile: Отправка идентификатора профиля
-   * 
-   * @param userProfileId 
+   *
+   * @param userProfileId
    */
   setUserProfileId(userProfileId: YAMUserProfileId): Promise<void>;
 
   /**
    * User Profile: Отправка атрибутов профиля
-   * 
-   * @param userProfile 
+   *
+   * @param userProfile
    */
   reportUserProfile(userProfile: YAMUserProfile): Promise<void>;
 }
@@ -236,10 +236,10 @@ export interface YAMShowProductDetailsEventOptions {
   product: ECommerceProduct;
   referrer: ECommerceReferrer;
 }
-//#region 
+//#region
 
 //#region ECommerce definitions
-export type ECommercePayload = { [key: string]: string; };
+export type ECommercePayload = { [key: string]: string };
 export type ECommerceAmount = [number, string]; // value: number, unit: string
 
 export interface ECommercePrice {
@@ -287,7 +287,7 @@ export interface ECommerceScreen {
 
   /**
    * Путь к экрану по категориям.
-   * 
+   *
    * Допустимые размеры:
    * - до 10 элементов;
    * - размер одного элемента до 100 символов.
@@ -296,7 +296,7 @@ export interface ECommerceScreen {
 
   /**
    * Дополнительная информация об экране.
-   * 
+   *
    * Допустимые размеры:
    * - общий размер payload: до 20 КБ;
    * - размер key: до 100 символов;
@@ -344,7 +344,7 @@ export interface ECommerceProduct {
 
   /**
    * Дополнительная информация о товаре.
-   * 
+   *
    * Допустимые размеры:
    * - общий размер payload: до 20 КБ;
    * - размер key: до 100 символов;
@@ -391,7 +391,7 @@ export interface ECommerceOrder {
 
   /**
    * Дополнительная информация о заказе.
-   * 
+   *
    * Допустимые размеры:
    * - общий размер payload: до 20 КБ;
    * - размер key: до 100 символов;
@@ -402,7 +402,7 @@ export interface ECommerceOrder {
 //#endregion
 
 //#region User Profile
-export type YAMGenderType = 'male'|'female'|'other';
+export type YAMGenderType = 'male' | 'female' | 'other';
 export interface YAMUserProfileBirthDate {
   year: number;
   month?: number;
@@ -421,6 +421,6 @@ export interface YAMUserProfile {
   name?: string;
   gender?: YAMGenderType;
   notificationEnabled?: boolean;
-  birthDate?: YAMUserProfileBirthDate|YAMUserProfileAge;
+  birthDate?: YAMUserProfileBirthDate | YAMUserProfileAge;
 }
 //#endregion

@@ -8,8 +8,8 @@
 - Locations (не тестровались)
 
 **Версии App Metrica SDK:**
-- iOS: **5.14.0**
-- Android: **7.13.0**
+- iOS: **>= 5.14.0, < 8.0.0** (CocoaPods и Swift Package Manager)
+- Android: **7.14.3**
 
 ## Демо приложение
 
@@ -30,6 +30,13 @@ npm install capacitor-appmetrica-plugin
 
 npx cap sync
 ```
+
+### iOS
+
+Поддерживаются оба менеджера зависимостей, дополнительная настройка не требуется:
+
+- **Swift Package Manager** — проекты, созданные через `npx cap add ios --packagemanager SPM`. `npx cap sync` сам добавит пакет `CapacitorAppmetricaPlugin` в `CapApp-SPM`.
+- **CocoaPods** — `npx cap sync` подключит pod `CapacitorAppmetricaPlugin` (вместе с `AppMetricaAnalytics`).
 
 ### Android
 

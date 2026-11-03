@@ -8,7 +8,7 @@ ext {
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:8.13.0'
@@ -33,7 +33,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    lintOptions {
+    lint {
         abortOnError = false
     }
     compileOptions {
@@ -57,8 +57,8 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
 
     // AppMetrica SDK.
-    implementation 'io.appmetrica.analytics:analytics:7.13.0'
-    implementation "io.appmetrica.analytics:analytics-ad-revenue:7.13.0"
+    implementation 'io.appmetrica.analytics:analytics:7.14.3'
+    implementation "io.appmetrica.analytics:analytics-ad-revenue:7.14.3"
     // configurations.configureEach {
     //   exclude group: "io.appmetrica.analytics", module: "analytics-identifiers"
     //   exclude group: "io.appmetrica.analytics", module: "analytics-location"
